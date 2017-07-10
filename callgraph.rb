@@ -3,7 +3,6 @@ require 'ffi/clang'
 
 index = FFI::Clang::Index::new()
 
-# target_file = "../work/tulip/thirdparty/sip-4.15.5/sipgen/transform.c"
 target_file = "test.c"
 trans_unit = index.parse_translation_unit(target_file)
 cursor = trans_unit.cursor()
@@ -21,7 +20,7 @@ children1 = cursor.visit_children do |current,parent,data|
 			p a.display_name
 		end
 	end
-	1
+	:continue
 end
 
 
